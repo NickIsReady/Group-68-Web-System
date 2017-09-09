@@ -1,5 +1,8 @@
 from django.http import HttpResponse
+from django.template import loader
+from django.shortcuts import render, redirect
 # Create your views here.
 
 def index(request):
-	return HttpResponse("<h1>Hello World</h1>")
+	return render(request, 'websiteMain/index.html')
+	#return HttpResponse('<p>Hello World</p>')
