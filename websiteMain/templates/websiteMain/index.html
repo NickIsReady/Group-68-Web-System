@@ -1,35 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- load static css files-->
-{% load staticfiles %}
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <head>
-    <meta charset="utf-8">
-    <link rel = "stylesheet"
-    type = "text/css"
-    href="{% static 'websiteMain/style.css' %}" />
-  </head>
-  <body>
-    <div class="container-fluid full" style="">
+{% extends 'websiteMain/base.html' %}
+{% block body %}
 
 
-  </div>
+<div class="container-fluid full" style="">
 
-    <p>Hello</p>
+</div>
+
+<p>Hello</p>
 
 
 
-  </body>
-</html>
+{% endblock %}
 
 <!-- http://brisbanethreads.com/wp-content/uploads/2016/05/brisbane.jpg -->
 
