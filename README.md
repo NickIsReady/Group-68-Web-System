@@ -3,7 +3,7 @@
 
 Git Bash commands
 
-cd (goto whereever the files are) example: cd django\ifb299website
+cd (goto whereever the files are) example: cd C:\Users\<username>\django\ifb299smartcity
 
 git init
 
