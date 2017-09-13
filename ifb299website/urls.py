@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^websiteMain/', include('websiteMain.urls')),
+    url(r'^informationPage/', include('informationPage.urls')),
 ]
