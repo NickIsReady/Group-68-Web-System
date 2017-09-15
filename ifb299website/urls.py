@@ -23,4 +23,5 @@ urlpatterns = [
 	url(r'^information', views.information, name='information'),
 	url(r'^help', views.help, name='help'),
 	url(r'^contacts', views.contacts, name='contacts'),
+	url(r'^register', views.register, name='register'),
 ]
