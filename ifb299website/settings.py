@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'informationPage.apps.InformationpageConfig',
     'websiteMain.apps.WebsitemainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,8 +76,12 @@ WSGI_APPLICATION = 'ifb299website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'Group_68',
+        'USER': 'admin',
+        'PASSWORD': 'qwertasdf',
+        'HOST': 'ifb299.cfyfsvpkp5ps.ap-southeast-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
