@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from .forms import UserForm
 from django.template.context_processors import request
@@ -81,7 +81,7 @@ def register(request):
             'websiteMain/register.html',
             {'user_form': user_form, 'registered': registered} )
 
-def login_user(request):
+def user_login(request):
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
@@ -99,6 +99,15 @@ def login_user(request):
 			return HttpResponse("Invalid login details supplied.")
 	else:
 		return render(request, 'websiteMain/login.html')
+		
+# Use the login_required() decorator to ensure only those logged in can access the view.
+@login_required
+def user_logout(request):
+    # Since we know the user is logged in, we can now just log them out.
+    logout(request)
+
+    # Take the user back to the homepage.
+    return HttpResponseRedirect('/')
 
 class UserFormView(View):
 	form_class = UserForm
