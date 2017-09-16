@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
 from email.policy import strict
-from websiteMain import models
+from .models import *
 
 #Main View Patterns
 
@@ -21,18 +21,19 @@ def contacts(request):
 def home(request):
 	return render(request, 'websiteMain/index.html')
 
-def malls(request):
-	return HttpResponse("<h2>Details for malls")
 
 #Data View Patterns
 
-def mall_detail(request, mall_ID):
-	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
-					+ "</h2>")
-
-def index(request):
+#Shows all the malls stored in the DB
+def malls(request):
 	all_malls = Mall.objects.all()
+	html = ''
 	for mall in all_malls:
 		url = '/malls/' + str(mall.mall_ID) + '/'
 		html += '<a href="' + url + '">' + mall.name + '</a><br>'
 	return HttpResponse(html)
+
+#Shows a mall using its mall_ID
+def mall_detail(request, mall_ID):
+	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
+					+ "</h2>")
