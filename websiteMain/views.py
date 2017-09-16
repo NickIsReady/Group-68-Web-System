@@ -6,10 +6,14 @@ from django.views.generic import View
 from .forms import UserForm
 from django.template.context_processors import request
 # Create your views here.
+from email.policy import strict
+from .models import *
+
+#Main View Patterns
+
 
 def index(request):
 	return render(request, 'websiteMain/index.html')
-	#return HttpResponse('<p>Hello World</p>')
 	
 def information(request):
 	return render(request, 'websiteMain/information.html')
@@ -93,3 +97,24 @@ class UserFormView(View):
 			
 			
 			
+
+def home(request):
+	return render(request, 'websiteMain/index.html')
+
+
+#Data View Patterns
+
+#Shows all the malls stored in the DB
+def malls(request):
+	all_malls = Mall.objects.all()
+	html = ''
+	for mall in all_malls:
+		url = '/malls/' + str(mall.mall_ID) + '/'
+		html += '<a href="' + url + '">' + mall.name + '</a><br>'
+	return HttpResponse("Details for malls in DB<br/>" + html + "<br/>End of information")
+
+#Shows a mall using its mall_ID
+def mall_detail(request, mall_ID):
+	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
+					+ "</h2>")
+
