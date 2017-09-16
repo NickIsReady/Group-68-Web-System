@@ -25,6 +25,7 @@ urlpatterns = [
 	url(r'^help', views.help, name='help'),
 	url(r'^contacts', views.contacts, name='contacts'),
 	url(r'^register', views.register, name='register'),
+
 	
     url(r'^home', views.index, name='index'),
   
@@ -33,4 +34,8 @@ urlpatterns = [
     
         # /malls/1/
     url(r'^malls/(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
+
+	url(r'^login', views.user_login, name ='login'),
+	url(r'^logout', views.user_logout, name='logout'),
+
 ]

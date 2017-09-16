@@ -1,7 +1,11 @@
 {% extends 'websiteMain/base.html' %}
 {% block body %}
+{% if user.is_authenticated %}
+<h1>Information Page Here... hello {{ user.username }}!</h1>
+{% else %}
+<h1>Information Page Here... hello world!</h1>
+{% endif %}
 
-<p>Information Page Here</p>
 
 
 {% endblock %}
