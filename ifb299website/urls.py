@@ -18,10 +18,17 @@ from django.contrib import admin
 from websiteMain import views
 
 urlpatterns = [
+#Main Pages
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
 	url(r'^information', views.information, name='information'),
 	url(r'^help', views.help, name='help'),
 	url(r'^contacts', views.contacts, name='contacts'),
     url(r'^home', views.index, name='index'),
+  
+#Data Pages
+    url(r'^malls', views.malls, name='malls'),
+    
+        # /malls/1/
+    url(r'^(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
 ]
