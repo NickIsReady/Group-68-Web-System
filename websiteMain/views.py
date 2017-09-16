@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
 from email.policy import strict
+from websiteMain import models
 
 #Main View Patterns
 
@@ -28,3 +29,10 @@ def malls(request):
 def mall_detail(request, mall_ID):
 	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
 					+ "</h2>")
+
+def index(request):
+	all_malls = Mall.objects.all()
+	for mall in all_malls:
+		url = '/malls/' + str(mall.mall_ID) + '/'
+		html += '<a href="' + url + '">' + mall.name + '</a><br>'
+	return HttpResponse(html)
