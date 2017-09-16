@@ -1,16 +1,35 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
 from django.template.context_processors import request
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-	return render(request, 'websiteMain/index.html')
+	#return render(request, 'websiteMain/index.html')
 	#return HttpResponse('<p>Hello World</p>')
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		
+		user = authenticate(username=username, password=password)
+		
+		if user:
+			if user.is_active:
+				login(request, user)
+				return HttpResponse("You're logged in")
+			else:
+				return HttpResponse("Your account is disabled")
+		else:
+			#print "Invalid login details: {0}, {1}".format(username, password)
+			return HttpResponse("Invalid login details supplied")
 	
+	return render(request, 'websiteMain/index.html')
+
+@login_required	
 def information(request):
 	return render(request, 'websiteMain/information.html')
 
@@ -61,6 +80,25 @@ def register(request):
     return render(request,
             'websiteMain/register.html',
             {'user_form': user_form, 'registered': registered} )
+
+def login_user(request):
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		
+		user = authenticate(username=username, password=password)
+		
+		if user:
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect('/information')
+			else:
+				return HttpResponse("Your account is disabled")
+		else:
+			#print "Invalid login details: {0}, {1}".format(username, password)
+			return HttpResponse("Invalid login details supplied.")
+	else:
+		return render(request, 'websiteMain/login.html')
 
 class UserFormView(View):
 	form_class = UserForm
