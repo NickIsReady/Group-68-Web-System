@@ -30,12 +30,62 @@ urlpatterns = [
     url(r'^home', views.index, name='index'),
   
 #Data Pages
+
+        # /malls
     url(r'^malls', views.malls, name='malls'),
-    
-        # /malls/1/
+        # /malls/#/
     url(r'^malls/(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
+
 
 	url(r'^login', views.user_login, name ='login'),
 	url(r'^logout', views.user_logout, name='logout'),
+
+
+        
+        # /hotels
+    url(r'^hotels', views.hotels, name='hotels'),
+        # /hotels/#/
+    url(r'^hotels/(?P<hotel_ID>[0-9]+)/$', views.hotel_detail, name='hotel_detail'),
+    
+        # /Parks
+    url(r'^parks', views.parks, name='parks'),
+        # /parks/#/
+    url(r'^parks/(?P<park_ID>[0-9]+)/$', views.park_detail, name='park_detail'),
+    
+        # /College
+    url(r'^colleges', views.colleges, name='colleges'),
+        # /colleges/#/
+    url(r'^colleges/(?P<college_ID>[0-9]+)/$', views.college_detail, name='college_detail'),
+    
+        # /Libraries
+    url(r'^libraries', views.libraries, name='libraries'),
+        # /Libraries/#/
+    url(r'^libraries/(?P<library_ID>[0-9]+)/$', views.library_detail, name='library_detail'),
+    
+        # /Zoos
+    url(r'^zoos', views.zoos, name='zoos'),
+        # /Zoos/#/
+    url(r'^zoos/(?P<zoo_ID>[0-9]+)/$', views.zoo_detail, name='zoo_detail'),
+    
+        # /Museums
+    url(r'^museums', views.museums, name='museums'),
+        # /Museums/#/
+    url(r'^museums/(?P<museum_ID>[0-9]+)/$', views.museum_detail, name='museum_detail'),
+    
+        # /Industries
+    url(r'^industries', views.industries, name='industries'),
+        # /Industries/#/
+    url(r'^industries/(?P<industry_ID>[0-9]+)/$', views.industry_detail, name='industry_detail'),
+    
+        # /Restaurants
+    url(r'^restaurants', views.restaurants, name='restaurants'),
+        # /Restaurants/#/
+    url(r'^restaurants/(?P<restaurant_ID>[0-9]+)/$', views.restaurant_detail, name='restaurant_detail'),
+    
+        # /Cities
+    url(r'^cities', views.cities, name='cities'),
+        # /Cities/#/
+    url(r'^cities/(?P<city_ID>[0-9]+)/$', views.city_detail, name='city_detail'),
+    
 
 ]
