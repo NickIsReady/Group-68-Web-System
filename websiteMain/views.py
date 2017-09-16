@@ -37,3 +37,19 @@ def malls(request):
 def mall_detail(request, mall_ID):
 	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
 					+ "</h2>")
+	
+#Shows all the hotels stored in the DB
+def hotels(request):
+	all_hotels = Hotel.objects.all()
+	html = ''
+	for hotel in all_hotels:
+		url = '/hotels/' + str(hotel.hotel_ID) + '/'
+		html += '<a href="' + url + '">' + hotel.name + '</a><br>'
+	return HttpResponse("Details for hotels in DB<br/>" + html + "<br/>End of information")
+
+#Shows a hotel using its hotel_ID
+def hotel_detail(request, hotel_ID):
+	return HttpResponse("<h2>Details for Hotel ID: " + str(hotel_ID) 
+					+ "</h2>")
+	
+	

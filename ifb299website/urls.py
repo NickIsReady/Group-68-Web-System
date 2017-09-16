@@ -27,8 +27,16 @@ urlpatterns = [
     url(r'^home', views.index, name='index'),
   
 #Data Pages
+
+        # /malls
     url(r'^malls', views.malls, name='malls'),
-    
-        # /malls/1/
+        # /malls/#/
     url(r'^malls/(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
+        
+        # /hotels
+    url(r'^hotels', views.hotels, name='hotels'),
+        # /hotels/#/
+    url(r'^hotels/(?P<hotel_ID>[0-9]+)/$', views.hotel_detail, name='hotel_detail'),
+    
+    
 ]
