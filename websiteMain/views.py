@@ -31,7 +31,7 @@ def malls(request):
 	for mall in all_malls:
 		url = '/malls/' + str(mall.mall_ID) + '/'
 		html += '<a href="' + url + '">' + mall.name + '</a><br>'
-	return HttpResponse(html)
+	return HttpResponse("Details for malls in DB<br/>" + html + "<br/>End of information")
 
 #Shows a mall using its mall_ID
 def mall_detail(request, mall_ID):
