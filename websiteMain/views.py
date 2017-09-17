@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from email.policy import strict
 from .models import *
@@ -26,6 +28,20 @@ def contacts(request):
 
 def home(request):
 	return render(request, 'websiteMain/index.html')
+
+#Create, Update, Delete items
+
+class MallCreate(CreateView):
+	model = Mall
+	fields = ['name','address','phone_number','city','email','image_url']
+
+class MallUpdate(UpdateView):
+	model = Mall
+	fields = ['name','address','phone_number','city','email','image_url']
+
+class MallDelete(DeleteView):
+	model = Mall
+	success_url = reverse_lazy('websiteMain/index')
 
 
 #Data View Patterns
