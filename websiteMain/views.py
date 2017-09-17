@@ -40,7 +40,7 @@ def index(request):
 	
 	return render(request, 'websiteMain/index.html')
 
-@login_required	
+#login_required	
 def information(request):
 	return render(request, 'websiteMain/information.html')
 
@@ -48,11 +48,6 @@ def help(request):
 	return render(request, 'websiteMain/help.html')
 	
 def contacts(request):
-<<<<<<< HEAD
-	return render(request, 'websiteMain/contacts.html')
-	
-def register(request):
-
 	#[image of person, name, email]
 	context = [['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Patrick ​Breen',''],
 			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Douglas ​Brennan',''],
@@ -61,6 +56,8 @@ def register(request):
 			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Tuan ​Luong','']]
 	return render(request, 'websiteMain/contacts.html', {'names': context})
 
+	
+def register(request):
 
     # A boolean value for telling the template whether the registration was successful.
     # Set to False initially. Code changes value to True when registration succeeds.
@@ -122,7 +119,7 @@ def user_login(request):
 		return render(request, 'websiteMain/login.html')
 		
 # Use the login_required() decorator to ensure only those logged in can access the view.
-@login_required
+#login_required
 def user_logout(request):
     # Since we know the user is logged in, we can now just log them out.
     logout(request)
