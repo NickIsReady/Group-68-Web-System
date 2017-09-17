@@ -33,10 +33,12 @@ def home(request):
 
 class MallCreate(CreateView):
 	model = Mall
+	template_name = 'websiteMain/mall_form.html'
 	fields = ['name','address','phone_number','city','email','image_url']
 
 class MallUpdate(UpdateView):
 	model = Mall
+	template_name = 'websiteMain/mall_form.html'
 	fields = ['name','address','phone_number','city','email','image_url']
 
 class MallDelete(DeleteView):

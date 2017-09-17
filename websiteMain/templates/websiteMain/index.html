@@ -7,22 +7,40 @@
     type = "text/css"
     href="{% static 'websiteMain/signin.css' %}" />
 
-<div class="container" style="">
-	<form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+<div class="container-fluid bg-3 text-center">    
+  <h3>Looking for Places to Go?</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Tourist</h1>
+      <p>Find hotels and important city information.</p>
+       <img src="{% static 'websiteMain/images/tourist.png' %}" width="250" height="250">
+    </div>
+    <div class="col-sm-4"> 
+      <h1>Student</h1>
+      <p>Find colleges and libraries near you.</p>
+       <img src="{% static 'websiteMain/images/student.png' %}" width="250" height="250">
+    </div>
+    <div class="col-sm-4"> 
+      <h1>Businessman</h1>
+      <p>Find industries.</p>
+       <img src="{% static 'websiteMain/images/businessman.png' %}" width="250" height="250">
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="container-fluid bg-3 text-center" style="background-color: white">
+    <form class="form-signin">
+        <h1 class="form-signin-heading">Already have an account?<h1> <h2>Sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign in</button>
       </form>
-
 </div>
 
-<p>Hello</p>
-
-
-<button type="button" class="btn btn-primary btn-block">Sign Up</button> 
 
 
 {% endblock %}
@@ -32,7 +50,11 @@
 
 
 
-
+<!-- 
+https://openclipart.org/detail/186816/student-with-mortarboard
+https://openclipart.org/detail/277992/work
+https://openclipart.org/detail/148135/plane
+-->
 
 
 <!-- geolocation note to selves-->
