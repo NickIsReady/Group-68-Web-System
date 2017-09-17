@@ -5,8 +5,28 @@
     <!-- load static css files-->
 {% load staticfiles %}
 
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<h1>Who we are</h1>
+
+<div class="container">
+{% for i in names %}
+<div class="media">
+  <div class="media-left">
+    <img src="{{ i.0 }}" class="media-object" style="width:100px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{ i.1 }}</h4>
+    <p>Email: <a href="">{{ i.2 }}</a></p>
+  </div>
+</div>
+
+<hr>
+{% endfor %}
+
+
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,5 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
@@ -46,9 +48,19 @@ def help(request):
 	return render(request, 'websiteMain/help.html')
 	
 def contacts(request):
+<<<<<<< HEAD
 	return render(request, 'websiteMain/contacts.html')
 	
 def register(request):
+
+	#[image of person, name, email]
+	context = [['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Patrick ​Breen',''],
+			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Douglas ​Brennan',''],
+			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Nicholas ​Constantine','nickconstantine3@gmail.com'],
+			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Joshua ​Stephens',''],
+			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Tuan ​Luong','']]
+	return render(request, 'websiteMain/contacts.html', {'names': context})
+
 
     # A boolean value for telling the template whether the registration was successful.
     # Set to False initially. Code changes value to True when registration succeeds.
@@ -117,6 +129,22 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
+
+#Create, Update, Delete items
+
+class MallCreate(CreateView):
+	model = Mall
+	template_name = 'websiteMain/mall_form.html'
+	fields = ['name','address','phone_number','city','email','image_url']
+
+class MallUpdate(UpdateView):
+	model = Mall
+	template_name = 'websiteMain/mall_form.html'
+	fields = ['name','address','phone_number','city','email','image_url']
+
+class MallDelete(DeleteView):
+	model = Mall
+	success_url = reverse_lazy('websiteMain/index')
 
 
 #Data View Patterns
