@@ -2,7 +2,10 @@
 {% block body %}
 
 <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+{% load staticfiles %}
+    <link rel = "stylesheet"
+    type = "text/css"
+    href="{% static 'websiteMain/signin.css' %}" />
 
 <div class="container" style="">
 	<form class="form-signin">
