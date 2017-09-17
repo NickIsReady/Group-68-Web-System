@@ -47,7 +47,8 @@
 </div>
 
 <div class="container-fluid bg-3 text-center" style="background-color: white">
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="/">
+	{% csrf_token %}
         <h1 class="form-signin-heading">Already have an account?<h1> <h2>Sign in</h2>
 
         <label for="inputUsername" class="sr-only">Username</label>
