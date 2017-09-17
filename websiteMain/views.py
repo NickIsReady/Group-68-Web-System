@@ -15,7 +15,7 @@ from .models import *
 
 def index(request):
 
-	return render(request, 'websiteMain/index.html')
+	#return render(request, 'websiteMain/index.html')
 
 	#return render(request, 'websiteMain/index.html')
 	#return HttpResponse('<p>Hello World</p>')
@@ -28,7 +28,7 @@ def index(request):
 		if user:
 			if user.is_active:
 				login(request, user)
-				return HttpResponse("You're logged in")
+				return HttpResponseRedirect('/information')
 			else:
 				return HttpResponse("Your account is disabled")
 		else:
@@ -117,41 +117,6 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
-
-class UserFormView(View):
-	form_class = UserForm
-	template_name = ''
-	
-	def get(self, request):
-		form = self.form_class(None)
-		return render(request, self.template_name, {'form': form})
-	
-	def post(self, request):
-		form = self.form_class(request.POST)
-		
-		if form.is_valid():
-			
-			user = form.save(commit=False)
-			
-			username = form.cleaned_data['username']
-			password = form.cleaned_data['password']
-			user.set_password(password)
-			user.save()
-			
-			user = authenticate(username=username, password=password)
-			
-			if user is not None:
-				login(request, user)
-				return redirect('information')
-			
-		return render(request, self.template_name, {'form': form})	
-			
-			
-			
-			
-
-def home(request):
-	return render(request, 'websiteMain/index.html')
 
 
 #Data View Patterns

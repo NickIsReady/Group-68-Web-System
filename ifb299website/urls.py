@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from websiteMain import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 #Main Pages
@@ -25,22 +26,15 @@ urlpatterns = [
 	url(r'^help', views.help, name='help'),
 	url(r'^contacts', views.contacts, name='contacts'),
 	url(r'^register', views.register, name='register'),
-
-	
-    url(r'^home', views.index, name='index'),
+	#url(r'^login', views.user_login, name ='login'),
+	url(r'^logout', views.user_logout, name='logout'),
+	url('^', include('django.contrib.auth.urls')),
   
 #Data Pages
-
         # /malls
     url(r'^malls', views.malls, name='malls'),
         # /malls/#/
     url(r'^malls/(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
-
-
-	url(r'^login', views.user_login, name ='login'),
-	url(r'^logout', views.user_logout, name='logout'),
-
-
         
         # /hotels
     url(r'^hotels', views.hotels, name='hotels'),
