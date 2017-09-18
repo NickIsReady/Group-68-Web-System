@@ -22,7 +22,7 @@ urlpatterns = [
 #Main Pages
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-	url(r'^information', views.information, name='information'),
+	url(r'^information$', views.information, name='information'),
 	url(r'^help', views.help, name='help'),
 	url(r'^contacts', views.contacts, name='contacts'),
 	url(r'^register', views.register, name='register'),
@@ -31,10 +31,11 @@ urlpatterns = [
 	url('^', include('django.contrib.auth.urls')),
   
 #Data Pages
-        # /malls
-    url(r'^malls', views.malls, name='malls'),
-        # /malls/#/
-    url(r'^malls/(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
+        # /information/malls
+    url(r'^information/malls$', views.malls, name='malls'),
+    
+        # /information/malls/#/
+    url(r'^(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
         
         # /hotels
     url(r'^hotels', views.hotels, name='hotels'),

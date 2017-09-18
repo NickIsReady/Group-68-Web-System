@@ -149,11 +149,11 @@ class MallDelete(DeleteView):
 #Shows all the malls stored in the DB
 def malls(request):
 	all_malls = Mall.objects.all()
-	html = ''
-	for mall in all_malls:
-		url = '/malls/' + str(mall.mall_ID) + '/'
-		html += '<a href="' + url + '">' + mall.name + '</a><br>'
-	return HttpResponse("Details for malls in DB<br/>" + html + "<br/>End of information")
+	template = loader.get_template('websiteMain/information_malls.html')
+	context = {
+		'all_malls': all_malls
+	}
+	return HttpResponse(template.render(context, request))
 
 #Shows a mall using its mall_ID
 def mall_detail(request, mall_ID):
