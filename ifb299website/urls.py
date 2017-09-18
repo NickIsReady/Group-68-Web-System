@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^information/malls$', views.malls, name='malls'),
     
         # /information/malls/#/
-    url(r'^(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='mall_detail'),
+    url(r'^mallGet/$', views.mall_detail, name='mallGet'),
         
         # /hotels
     url(r'^hotels', views.hotels, name='hotels'),

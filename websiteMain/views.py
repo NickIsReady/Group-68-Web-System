@@ -157,8 +157,11 @@ def malls(request):
 
 #Shows a mall using its mall_ID
 def mall_detail(request, mall_ID):
-	return HttpResponse("<h2>Details for Mall ID: " + str(mall_ID) 
-					+ "</h2>")
+	template = loader.get_template('websiteMain/mallGet.html')
+	context = {
+		'mall_ID': mall_ID,
+	}
+	return HttpResponse(template.render(context, request))
 
 	
 #Shows all the hotels stored in the DB
