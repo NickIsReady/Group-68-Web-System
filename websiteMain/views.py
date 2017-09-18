@@ -46,6 +46,11 @@ def information(request):
 
 def help(request):
 	return render(request, 'websiteMain/help.html')
+
+def categories(request):
+	context = ['College','Library','Industry',
+	'Hotel','Park','Zoo','Museum','Restaurant','Mall']
+	return render(request, 'websiteMain/categories.html', {'categories': context})
 	
 def contacts(request):
 	#[image of person, name, email]
