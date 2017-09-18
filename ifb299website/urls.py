@@ -35,12 +35,12 @@ urlpatterns = [
     url(r'^information/malls$', views.malls, name='malls'),
     
         # /information/malls/#/
-    url(r'^mallGet/$', views.mall_detail, name='mallGet'),
+    url(r'^(?P<mall_ID>[0-9]+)/$', views.mall_detail, name='detail'),
         
         # /hotels
     url(r'^hotels', views.hotels, name='hotels'),
         # /hotels/#/
-    url(r'^hotels/(?P<hotel_ID>[0-9]+)/$', views.hotel_detail, name='hotel_detail'),
+    url(r'^hotelGet/$', views.hotel_detail, name='hotelGet'),
     
         # /Parks
     url(r'^parks', views.parks, name='parks'),
