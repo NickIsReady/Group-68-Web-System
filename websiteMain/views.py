@@ -161,10 +161,11 @@ def malls(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a mall using its mall_ID
-def mall_detail(request, mall_ID):
+def mall_detail(request, mall_id):
+	mall = Mall.objects.get(id=mall_id)
 	template = loader.get_template('websiteMain/mallGet.html')
 	context = {
-		'mall_ID': mall_ID,
+		'mall': mall,
 	}
 	return HttpResponse(template.render(context, request))
 

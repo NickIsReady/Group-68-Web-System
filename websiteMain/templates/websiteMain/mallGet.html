@@ -4,11 +4,11 @@
 {% if user.is_authenticated %}
 	<h1>Hello {{ user.username }}!</h1>
 	
-	<h1>Name: {{mall_name}}</h1>
-	<h1>Address: {{mall_address}}</h1>	
-	<h1>Phone Number: {{mall_phone_number}}</h1>
-	<h1>City: {{mall_city}}</h1>
-	<h1>Image:</h1>  <img src="{{image_url}}" alt="HTML5 Icon" style="width:128px;height:128px;"> 
+	<h1>Name: {{mall.name}}</h1>
+	<h1>Address: {{mall.address}}</h1>	
+	<h1>Phone Number: {{mall.phone_number}}</h1>
+	<h1>City: {{mall.city}}</h1>
+	<h1>Image:</h1>  <img src="{{mall.image_url}}" alt="HTML5 Icon" style="width:128px;height:128px;"> 
 	
 
 {% else %}

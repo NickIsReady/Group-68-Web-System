@@ -14,6 +14,12 @@ urlpatterns = [
 	url(r'^logout', views.user_logout, name='logout'),
 
 	url(r'^/categories', views.categories, name='categories'),
+
+        # /information/malls
+    url(r'^information/malls$', views.malls, name='malls'),
+    
+        # /information/malls/#/
+    url(r'^mall_ID/(?P<mall_id>[0-9]+)/$', views.mall_detail, name='detail'),
 	
 
 

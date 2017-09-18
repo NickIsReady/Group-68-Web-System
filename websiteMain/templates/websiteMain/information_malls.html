@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
 	<h1>Mall Information Page Here... hello {{ user.username }}!</h1>
 	{% for mall in all_malls %}
-		<li><a href='/mall_ID{{mall_ID}}'>{{ mall.name }}</a></li>
+		<li><a href="/mall_ID/{{mall.mall_ID}}">{{ mall.name }}</a></li>
 	{% endfor %}
 {% else %}
 	<h1>End of information</h1>
