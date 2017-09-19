@@ -1,0 +1,15 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>Museum Information Page Here... hello {{ user.username }}!</h1>
+	{% for museum in all_museums %}
+		<li><a href="/museum_ID/{{museum.museum_ID}}">{{ museum.name }}</a></li>
+	{% endfor %}
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>Library Information Page Here... hello {{ user.username }}!</h1>
+	{% for library in all_libraries %}
+		<li><a href="/library_ID/{{library.library_ID}}">{{ library.name }}</a></li>
+	{% endfor %}
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}

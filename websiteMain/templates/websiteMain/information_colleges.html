@@ -1,0 +1,15 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>College Information Page Here... hello {{ user.username }}!</h1>
+	{% for college in all_colleges %}
+		<li><a href="/college_ID/{{college.college_ID}}">{{ college.name }}</a></li>
+	{% endfor %}
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}

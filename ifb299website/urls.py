@@ -32,56 +32,69 @@ urlpatterns = [
 	url('^', include('django.contrib.auth.urls')),
   
 #Data Pages
+    
+    #Show all malls
         # /information/malls
     url(r'^information/malls$', views.malls, name='malls'),
     
+    #Show specific mall
         # /information/malls/#/
     url(r'^mall_ID/(?P<mall_id>[0-9]+)/$', views.mall_detail, name='detail'),
+    
+    #Show all hotels
+        # /information/hotels
+    url(r'^information/hotels$', views.hotels, name='hotels'),
+    
+    #Show specific hotel
+        # /information/hotels/#/
+    url(r'^hotel_ID/(?P<hotel_id>[0-9]+)/$', views.hotel_detail, name='detail'),
+
+    #Show all parks
+        # /information/parks
+    url(r'^information/parks$', views.parks, name='parks'),
+    
+    #Show specific park
+        # /information/parks/#/
+    url(r'^park_ID/(?P<park_id>[0-9]+)/$', views.park_detail, name='detail'),
+    
+     #Show all colleges
+        # /information/colleges
+    url(r'^information/colleges$', views.colleges, name='colleges'),
+    
+    #Show specific college
+        # /information/colleges/#/
+    url(r'^college_ID/(?P<college_id>[0-9]+)/$', views.college_detail, name='detail'),
         
-        # /hotels
-    url(r'^hotels', views.hotels, name='hotels'),
-        # /hotels/#/
-    url(r'^hotelGet/$', views.hotel_detail, name='hotelGet'),
+     #Show all libraries
+        # /information/libraries
+    url(r'^information/libraries$', views.libraries, name='libraries'),
     
-        # /Parks
-    url(r'^parks', views.parks, name='parks'),
-        # /parks/#/
-    url(r'^parks/(?P<park_ID>[0-9]+)/$', views.park_detail, name='park_detail'),
+    #Show specific library
+        # /information/libraries/#/
+    url(r'^library_ID/(?P<library_id>[0-9]+)/$', views.library_detail, name='detail'),
     
-        # /College
-    url(r'^colleges', views.colleges, name='colleges'),
-        # /colleges/#/
-    url(r'^colleges/(?P<college_ID>[0-9]+)/$', views.college_detail, name='college_detail'),
+     #Show all zoos
+        # /information/zoos
+    url(r'^information/zoos$', views.zoos, name='zoos'),
     
-        # /Libraries
-    url(r'^libraries', views.libraries, name='libraries'),
-        # /Libraries/#/
-    url(r'^libraries/(?P<library_ID>[0-9]+)/$', views.library_detail, name='library_detail'),
+    #Show specific zoo
+        # /information/zoos/#/
+    url(r'^zoo_ID/(?P<zoo_id>[0-9]+)/$', views.zoo_detail, name='detail'),
     
-        # /Zoos
-    url(r'^zoos', views.zoos, name='zoos'),
-        # /Zoos/#/
-    url(r'^zoos/(?P<zoo_ID>[0-9]+)/$', views.zoo_detail, name='zoo_detail'),
+         #Show all Museums
+        # /information/museums
+    url(r'^information/museums$', views.museums, name='museums'),
     
-        # /Museums
-    url(r'^museums', views.museums, name='museums'),
-        # /Museums/#/
-    url(r'^museums/(?P<museum_ID>[0-9]+)/$', views.museum_detail, name='museum_detail'),
+    #Show specific museum
+        # /information/museums/#/
+    url(r'^museum_ID/(?P<museum_id>[0-9]+)/$', views.museum_detail, name='detail'),
     
-        # /Industries
-    url(r'^industries', views.industries, name='industries'),
-        # /Industries/#/
-    url(r'^industries/(?P<industry_ID>[0-9]+)/$', views.industry_detail, name='industry_detail'),
+    #Show all Industries
+        # /information/industries
+    url(r'^information/industries$', views.industries, name='industries'),
     
-        # /Restaurants
-    url(r'^restaurants', views.restaurants, name='restaurants'),
-        # /Restaurants/#/
-    url(r'^restaurants/(?P<restaurant_ID>[0-9]+)/$', views.restaurant_detail, name='restaurant_detail'),
-    
-        # /Cities
-    url(r'^cities', views.cities, name='cities'),
-        # /Cities/#/
-    url(r'^cities/(?P<city_ID>[0-9]+)/$', views.city_detail, name='city_detail'),
-    
+    #Show specific industry
+        # /information/industries/#/
+    url(r'^industry_ID/(?P<industry_id>[0-9]+)/$', views.industry_detail, name='detail'),
 
 ]

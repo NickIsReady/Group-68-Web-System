@@ -1,0 +1,15 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>Industry Information Page Here... hello {{ user.username }}!</h1>
+	{% for industry in all_industries %}
+		<li><a href="/industry_ID/{{industry.industry}}">{{ industry.name }}</a></li>
+	{% endfor %}
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+{% if user.is_authenticated %}
+	<h1>Hello {{ user.username }}!</h1>
+	
+	<h1>Name: {{library.name}}</h1>
+	<h1>Address: {{library.address}}</h1>	
+	<h1>Phone Number: {{library.phone_number}}</h1>
+	<h1>City: {{library.city}}</h1>
+	<h1>Image:</h1>  <img src="{{library.image_url}}" alt="HTML5 Icon" style="width:128px;height:128px;"> 
+	
+
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+
+{% endblock %}
