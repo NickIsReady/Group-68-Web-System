@@ -4,12 +4,10 @@
 
 from django.db import models
 from unittest.util import _MAX_LENGTH
+from django.contrib.auth.models import AbstractUser
 
 # User Entity 
-class User(models.Model):
-    email_address = models.CharField(max_length=500)
-    name_first = models.CharField(max_length=250)
-    name_last = models.CharField(max_length=250)
+class User(AbstractUser):
     user_type = models.CharField(max_length=250)
 
 # Mall Entity

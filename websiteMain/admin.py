@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import * 
 
 #entities = [User, Mall, Hotel, Park, College, Library,
@@ -8,7 +9,7 @@ from .models import *
     #admin.site.register(x)
 
 #Register Entities
-admin.site.register(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Mall)
 admin.site.register(Hotel)
 admin.site.register(Park)
