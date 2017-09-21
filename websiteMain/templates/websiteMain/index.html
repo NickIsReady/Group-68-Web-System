@@ -35,12 +35,8 @@
   <br>
   <div class="container" style="">
   <form class="form-signin" method="post" action="/">
-  {% csrf_token %}
-  {% if user.is_authenticated %}
-  <a href="/logout" class="btn btn-primary btn-block">Logout</a>
-  {% else %}
+  
   <a href="/register" class="btn btn-primary btn-block">Sign Up</a>
-  {% endif %}
   </form>
   </div>
   <br>
@@ -59,6 +55,17 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
       </form>
+</div>
+
+<div class="container-fluid bg-3 text-center" style="background-color: grey">
+  <br>
+  <div class="container" style="">
+  <form class="form-signin" method="post" action="/">
+  
+  <a href="/password_reset" class="btn btn-primary btn-block">Forgotten Password</a>
+  </form>
+  </div>
+  <br>
 </div>
 
 

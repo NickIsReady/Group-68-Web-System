@@ -198,7 +198,7 @@ def parks(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a park using its park_ID
-def hotel_detail(request, park_id):
+def park_detail(request, park_id):
 	park = Park.objects.get(id=park_id)
 	template = loader.get_template('websiteMain/parkGet.html')
 	context = {
