@@ -1,0 +1,15 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>Restaurant Information Page Here... hello {{ user.username }}!</h1>
+	{% for restaurant in all_restaurants %}
+		<li><a href="/restaurant_ID/{{restaurant.restaurant_ID}}">{{ restaurant.name }}</a></li>
+	{% endfor %}
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}

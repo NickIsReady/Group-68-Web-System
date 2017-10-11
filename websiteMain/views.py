@@ -295,3 +295,39 @@ def industry_detail(request, industry_id):
 		'industry': industry,
 	}
 	return HttpResponse(template.render(context, request))
+
+#Shows all the restaurants stored in the DB
+def restaurants(request):
+	all_restaurants = Restaurant.objects.all()
+	template = loader.get_template('websiteMain/information_restaurants.html')
+	context = {
+		'all_restaurants': all_restaurants
+	}
+	return HttpResponse(template.render(context, request))
+
+#Shows a restaurant using its restaurant_ID
+def restaurant_detail(request, restaurant_id):
+	restaurant = Restaurant.objects.get(id=restaurant_id)
+	template = loader.get_template('websiteMain/industryGet.html')
+	context = {
+		'restaurant': restaurant,
+	}
+	return HttpResponse(template.render(context, request))
+
+#Shows all the restaurants stored in the DB
+def restaurants(request):
+	all_restaurants = Restaurant.objects.all()
+	template = loader.get_template('websiteMain/information_restaurants.html')
+	context = {
+		'all_restaurants': all_restaurants
+	}
+	return HttpResponse(template.render(context, request))
+
+#Shows a restaurant using its restaurant_ID
+def restaurant_detail(request, restaurant_id):
+	restaurant = Restaurant.objects.get(id=restaurant_id)
+	template = loader.get_template('websiteMain/restaurantGet.html')
+	context = {
+		'restaurant': restaurant,
+	}
+	return HttpResponse(template.render(context, request))

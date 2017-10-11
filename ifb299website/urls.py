@@ -96,5 +96,13 @@ urlpatterns = [
     #Show specific industry
         # /information/industries/#/
     url(r'^industry_ID/(?P<industry_id>[0-9]+)/$', views.industry_detail, name='detail'),
+    
+    #Show all Restaurants
+        # /information/restaurants
+    url(r'^information/restaurants$', views.restaurants, name='restaurants'),
+    
+    #Show specific restaurant
+        # /information/restaurants/#/
+    url(r'^restaurant_ID/(?P<restaurant_id>[0-9]+)/$', views.restaurant_detail, name='detail'),
 
 ]
