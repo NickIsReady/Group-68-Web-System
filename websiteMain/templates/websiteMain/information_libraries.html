@@ -4,9 +4,14 @@
 
 {% if user.is_authenticated %}
 	<h1>Library Information Page Here... hello {{ user.username }}!</h1>
+	<ul class="pager">
+		<li class="previous"><a href="http://127.0.0.1:8000/categories">Categories</a></li>
+	</ul>
+	<div class="list-group">
 	{% for library in all_libraries %}
-		<li><a href="/library_ID/{{library.library_ID}}">{{ library.name }}</a></li>
+		<a href="/library_ID/{{library.library_ID}}" class="list-group-item">{{ library.name }}</a>
 	{% endfor %}
+	</div>
 {% else %}
 	<h1>End of information</h1>
 {% endif %}

@@ -18,7 +18,33 @@
 <div class="col-sm-2">
 <div class="panel panel-default" style="width:180px;">
   <div class="panel-heading"><h4>{{ i }}</h4></div>
-  <a class="btn btn-default href="">
+  {% if i == 'College' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/colleges">
+  {% endif %}
+  {% if i == 'Hotel' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/hotels">
+  {% endif %}
+  {% if i == 'Park' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/parks">
+  {% endif %}
+  {% if i == 'Mall' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/malls">
+  {% endif %}
+  {% if i == 'Zoo' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/zoos">
+  {% endif %}
+  {% if i == 'Museum' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/museums">
+  {% endif %}
+  {% if i == 'Industry' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/industries">
+  {% endif %}
+  {% if i == 'Restaurant' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/restaurants">
+  {% endif %}
+  {% if i == 'Library' %}
+  <a class="btn btn-default" href="http://127.0.0.1:8000/information/libraries">
+  {% endif %}
   <div class="panel-body"><img src="{% static 'websiteMain/images/'%}{{ i }}.png" width="122" height="110"></div></a>
 </div>
 </div>

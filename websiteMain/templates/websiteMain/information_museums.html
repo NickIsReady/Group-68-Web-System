@@ -4,9 +4,14 @@
 
 {% if user.is_authenticated %}
 	<h1>Museum Information Page Here... hello {{ user.username }}!</h1>
+	<ul class="pager">
+		<li class="previous"><a href="http://127.0.0.1:8000/categories">Categories</a></li>
+	</ul>
+	<div class="list-group">
 	{% for museum in all_museums %}
-		<li><a href="/museum_ID/{{museum.museum_ID}}">{{ museum.name }}</a></li>
+		<a href="/museum_ID/{{museum.museum_ID}}" class="list-group-item">{{ museum.name }}</a>
 	{% endfor %}
+	</div>
 {% else %}
 	<h1>End of information</h1>
 {% endif %}
