@@ -48,6 +48,7 @@ def information(request):
 def help(request):
 	return render(request, 'websiteMain/help.html')
 
+@login_required	
 def categories(request):
 	q1 = Mall.objects.all()
 	q2 = Hotel.objects.all()
@@ -76,6 +77,7 @@ def categories(request):
 		
 		queryset_list=list(chain(q1, q2, q3, q4, q5, q6, q7, q8, q9))
 		context = {
+		'query': query,
 		'results': queryset_list
 	}
 		return HttpResponse(template.render(context, request))
@@ -184,6 +186,7 @@ class MallDelete(DeleteView):
 #Data View Patterns
 
 #Shows all the malls stored in the DB
+@login_required
 def malls(request):
 	all_malls = Mall.objects.all()
 	template = loader.get_template('websiteMain/information_malls.html')
@@ -193,6 +196,7 @@ def malls(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a mall using its mall_ID
+@login_required
 def mall_detail(request, mall_id):
 	mall = Mall.objects.get(id=mall_id)
 	template = loader.get_template('websiteMain/mallGet.html')
@@ -203,6 +207,7 @@ def mall_detail(request, mall_id):
 
 	
 #Shows all the hotels stored in the DB
+@login_required
 def hotels(request):
 	all_hotels = Hotel.objects.all()
 	template = loader.get_template('websiteMain/information_hotels.html')
@@ -212,6 +217,7 @@ def hotels(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a hotel using its hotel_ID
+@login_required
 def hotel_detail(request, hotel_id):
 	hotel = Hotel.objects.get(id=hotel_id)
 	template = loader.get_template('websiteMain/hotelGet.html')
@@ -221,6 +227,7 @@ def hotel_detail(request, hotel_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the parks stored in the DB
+@login_required
 def parks(request):
 	all_parks = Park.objects.all()
 	template = loader.get_template('websiteMain/information_parks.html')
@@ -230,6 +237,7 @@ def parks(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a park using its park_ID
+@login_required
 def park_detail(request, park_id):
 	park = Park.objects.get(id=park_id)
 	template = loader.get_template('websiteMain/parkGet.html')
@@ -239,6 +247,7 @@ def park_detail(request, park_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the colleges stored in the DB
+@login_required
 def colleges(request):
 	all_colleges = College.objects.all()
 	template = loader.get_template('websiteMain/information_colleges.html')
@@ -248,6 +257,7 @@ def colleges(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a college using its college_ID
+@login_required
 def college_detail(request, college_id):
 	college = College.objects.get(id=college_id)
 	template = loader.get_template('websiteMain/collegeGet.html')
@@ -257,6 +267,7 @@ def college_detail(request, college_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the libraries stored in the DB
+@login_required
 def libraries(request):
 	all_libraries = Library.objects.all()
 	template = loader.get_template('websiteMain/information_libraries.html')
@@ -266,6 +277,7 @@ def libraries(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a library using its library_ID
+@login_required
 def library_detail(request, library_id):
 	library = Library.objects.get(id=library_id)
 	template = loader.get_template('websiteMain/libraryGet.html')
@@ -275,6 +287,7 @@ def library_detail(request, library_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the zoos stored in the DB
+@login_required
 def zoos(request):
 	all_zoos = Zoo.objects.all()
 	template = loader.get_template('websiteMain/information_zoos.html')
@@ -284,6 +297,7 @@ def zoos(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a zoo using its zoo_ID
+@login_required
 def zoo_detail(request, zoo_id):
 	zoo = Zoo.objects.get(id=zoo_id)
 	template = loader.get_template('websiteMain/zooGet.html')
@@ -293,6 +307,7 @@ def zoo_detail(request, zoo_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the museums stored in the DB
+@login_required
 def museums(request):
 	all_museums = Museum.objects.all()
 	template = loader.get_template('websiteMain/information_museums.html')
@@ -302,6 +317,7 @@ def museums(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a museum using its museum_ID
+@login_required
 def museum_detail(request, museum_id):
 	museum = Museum.objects.get(id=museum_id)
 	template = loader.get_template('websiteMain/museumGet.html')
@@ -311,6 +327,7 @@ def museum_detail(request, museum_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the industries stored in the DB
+@login_required
 def industries(request):
 	all_industries = Industry.objects.all()
 	template = loader.get_template('websiteMain/information_industries.html')
@@ -320,6 +337,7 @@ def industries(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a industry using its industry_ID
+@login_required
 def industry_detail(request, industry_id):
 	industry = Industry.objects.get(id=industry_id)
 	template = loader.get_template('websiteMain/industryGet.html')
@@ -329,6 +347,7 @@ def industry_detail(request, industry_id):
 	return HttpResponse(template.render(context, request))
 
 #Shows all the restaurants stored in the DB
+@login_required
 def restaurants(request):
 	all_restaurants = Restaurant.objects.all()
 	template = loader.get_template('websiteMain/information_restaurants.html')
@@ -338,24 +357,7 @@ def restaurants(request):
 	return HttpResponse(template.render(context, request))
 
 #Shows a restaurant using its restaurant_ID
-def restaurant_detail(request, restaurant_id):
-	restaurant = Restaurant.objects.get(id=restaurant_id)
-	template = loader.get_template('websiteMain/industryGet.html')
-	context = {
-		'restaurant': restaurant,
-	}
-	return HttpResponse(template.render(context, request))
-
-#Shows all the restaurants stored in the DB
-def restaurants(request):
-	all_restaurants = Restaurant.objects.all()
-	template = loader.get_template('websiteMain/information_restaurants.html')
-	context = {
-		'all_restaurants': all_restaurants
-	}
-	return HttpResponse(template.render(context, request))
-
-#Shows a restaurant using its restaurant_ID
+@login_required
 def restaurant_detail(request, restaurant_id):
 	restaurant = Restaurant.objects.get(id=restaurant_id)
 	template = loader.get_template('websiteMain/restaurantGet.html')
