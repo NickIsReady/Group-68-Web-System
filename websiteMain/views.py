@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from email.policy import strict
 from .models import *
+from itertools import chain
 
 #Main View Patterns
 
@@ -48,9 +49,40 @@ def help(request):
 	return render(request, 'websiteMain/help.html')
 
 def categories(request):
-	context = ['College','Library','Industry',
-	'Hotel','Park','Zoo','Museum','Restaurant','Mall']
-	return render(request, 'websiteMain/categories.html', {'categories': context})
+	q1 = Mall.objects.all()
+	q2 = Hotel.objects.all()
+	q3 = Park.objects.all()
+	q4 = College.objects.all()
+	q5 = Library.objects.all()
+	q6 = Zoo.objects.all()
+	q7 = Museum.objects.all()
+	q8 = Industry.objects.all()
+	q9 = Restaurant.objects.all()
+	
+	template = loader.get_template('websiteMain/results.html')
+	query = request.GET.get("query")
+	
+	if query:
+		#queryset_list = queryset_list.filter(name__icontains=query)
+		q1 = q1.filter(name__icontains=query)
+		q2 = q2.filter(name__icontains=query)
+		q3 = q3.filter(name__icontains=query)
+		q4 = q4.filter(name__icontains=query)
+		q5 = q5.filter(name__icontains=query)
+		q6 = q6.filter(name__icontains=query)
+		q7 = q7.filter(name__icontains=query)
+		q8 = q8.filter(name__icontains=query)
+		q9 = q9.filter(name__icontains=query)
+		
+		queryset_list=list(chain(q1, q2, q3, q4, q5, q6, q7, q8, q9))
+		context = {
+		'results': queryset_list
+	}
+		return HttpResponse(template.render(context, request))
+	else: 
+		context = ['College','Library','Industry',
+		'Hotel','Park','Zoo','Museum','Restaurant','Mall']
+		return render(request, 'websiteMain/categories.html', {'categories': context})
 	
 def contacts(request):
 	#[image of person, name, email]

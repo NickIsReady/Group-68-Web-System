@@ -7,6 +7,11 @@
     href="{% static 'websiteMain/style.css' %}" />
 
 <div class="well well-sm"> <h2>Search for a Place</h2>
+<form method="GET" action=''>
+<input type="text" name="query" placeholder="Search a place" value="{{ request.GET.query }}"/>
+<input type="submit" value="Search" />
+</form>
+	
 
 <br>
 </div>

@@ -1,0 +1,54 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+	<h1>Here are your search results</h1>
+	<ul class="pager">
+		<li class="previous"><a href="http://127.0.0.1:8000/categories">Categories</a></li>
+	</ul>
+	<div class="list-group">
+	{% for result in results %}
+		{% if result.mall_ID != null %}
+			<a href="/mall_ID/{{result.mall_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.hotel_ID != null %}
+			<a href="/hotel_ID/{{result.hotel_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.park_ID != null %}
+			<a href="/park_ID/{{result.park_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.college_ID != null %}
+			<a href="/college_ID/{{result.college_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.library_ID != null %}
+			<a href="/library_ID/{{result.library_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.zoo_ID != null %}
+			<a href="/zoo_ID/{{result.zoo_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.museum_ID != null %}
+			<a href="/museum_ID/{{result.museum_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.industry_ID != null %}
+			<a href="/industry_ID/{{result.industry_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+		
+		{% if result.restaurant_ID != null %}
+			<a href="/restaurant_ID/{{result.restaurant_ID}}" class="list-group-item">{{ result.name }}</a>
+		{% endif %}
+	{% endfor %}
+	</div>
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+{% endblock %}
