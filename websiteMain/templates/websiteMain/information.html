@@ -1,11 +1,151 @@
 {% extends 'websiteMain/base.html' %}
 {% block body %}
 {% if user.is_authenticated %}
-<h1>Information Page Here... hello {{ user.username }}!</h1>
+	<h1>Hello {{ user.username }} here are some places for {{ user.user_type }}</h1>
+	<div class="list-group">
+	{% if user.user_type == 'Tourist' %}
+		<h2>Hotels</h2>
+		{% for result in results %}
+			{% if result.hotel_ID != null %}
+				<a href="/hotel_ID/{{result.hotel_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Parks</h2>
+		{% for result in results %}
+			{% if result.park_ID != null %}
+				<a href="/park_ID/{{result.park_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Zoos</h2>
+		{% for result in results %}
+			{% if result.zoo_ID != null %}
+				<a href="/zoo_ID/{{result.zoo_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Museums</h2>
+		{% for result in results %}
+			{% if result.museum_ID != null %}
+				<a href="/museum_ID/{{result.museum_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Restaurants</h2>
+		{% for result in results %}
+			{% if result.restaurant_ID != null %}
+				<a href="/restaurant_ID/{{result.restaurant_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Malls</h2>
+		{% for result in results %}
+			{% if result.mall_ID != null %}
+				<a href="/mall_ID/{{result.mall_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+	{% elif user.user_type == 'Student' %}
+		<h2>Colleges</h2>
+		{% for result in results %}
+			{% if result.college_ID != null %}
+				<a href="/college_ID/{{result.college_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Libraries</h2>
+		{% for result in results %}
+			{% if result.library_ID != null %}
+				<a href="/library_ID/{{result.library_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+			
+		<h2>Parks</h2>
+		{% for result in results %}
+			{% if result.park_ID != null %}
+				<a href="/park_ID/{{result.park_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Zoos</h2>
+		{% for result in results %}
+			{% if result.zoo_ID != null %}
+				<a href="/zoo_ID/{{result.zoo_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Museums</h2>
+		{% for result in results %}
+			{% if result.museum_ID != null %}
+				<a href="/museum_ID/{{result.museum_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Restaurants</h2>
+		{% for result in results %}
+			{% if result.restaurant_ID != null %}
+				<a href="/restaurant_ID/{{result.restaurant_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Malls</h2>
+		{% for result in results %}
+			{% if result.mall_ID != null %}
+				<a href="/mall_ID/{{result.mall_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+	{% elif user.user_type == 'Businessman' %}
+		<h2>Hotels</h2>
+		{% for result in results %}
+			{% if result.hotel_ID != null %}
+				<a href="/hotel_ID/{{result.hotel_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Industries</h2>
+		{% for result in results %}
+			{% if result.industry_ID != null %}
+				<a href="/industry_ID/{{result.industry_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Parks</h2>
+		{% for result in results %}
+			{% if result.park_ID != null %}
+				<a href="/park_ID/{{result.park_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Zoos</h2>
+		{% for result in results %}
+			{% if result.zoo_ID != null %}
+				<a href="/zoo_ID/{{result.zoo_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Museums</h2>
+		{% for result in results %}
+			{% if result.museum_ID != null %}
+				<a href="/museum_ID/{{result.museum_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Restaurants</h2>
+		{% for result in results %}
+			{% if result.restaurant_ID != null %}
+				<a href="/restaurant_ID/{{result.restaurant_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+		
+		<h2>Malls</h2>
+		{% for result in results %}
+			{% if result.mall_ID != null %}
+				<a href="/mall_ID/{{result.mall_ID}}" class="list-group-item">{{ result.name }}</a>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
 {% else %}
-<h1>Information Page Here... hello world!</h1>
+	<h1>Information Page Here... hello world!</h1>
 {% endif %}
-
-
 
 {% endblock %}

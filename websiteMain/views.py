@@ -43,7 +43,22 @@ def index(request):
 
 @login_required	
 def information(request):
-	return render(request, 'websiteMain/information.html')
+	malls = Mall.objects.all()
+	hotels = Hotel.objects.all()
+	parks = Park.objects.all()
+	colleges = College.objects.all()
+	libararies = Library.objects.all()
+	zoos = Zoo.objects.all()
+	museums = Museum.objects.all()
+	industries = Industry.objects.all()
+	restaurants = Restaurant.objects.all()
+	
+	template = loader.get_template('websiteMain/information.html')
+	places = list(chain(malls, hotels, parks, colleges, libararies, zoos, museums, industries, restaurants))
+	context = {
+		'results': places
+	}
+	return HttpResponse(template.render(context, request))
 
 def help(request):
 	return render(request, 'websiteMain/help.html')
@@ -79,7 +94,7 @@ def categories(request):
 		context = {
 		'query': query,
 		'results': queryset_list
-	}
+		}
 		return HttpResponse(template.render(context, request))
 	else: 
 		context = ['College','Library','Industry',
