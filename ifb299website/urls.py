@@ -30,6 +30,16 @@ urlpatterns = [
 	url(r'^logout', views.user_logout, name='logout'),
     url(r'^categories', views.categories, name='categories'),
 	url('^', include('django.contrib.auth.urls')),
+	url(r'^favourites', views.favourites, name='favourites'),
+	url(r'^favourite_mall/(?P<mall_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_mall, name='favourite_mall'),
+	url(r'^favourite_hotel/(?P<hotel_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_hotel, name='favourite_hotel'),
+	url(r'^favourite_park/(?P<park_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_park, name='favourite_park'),
+	url(r'^favourite_college/(?P<college_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_college, name='favourite_college'),
+	url(r'^favourite_library/(?P<library_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_library, name='favourite_library'),
+	url(r'^favourite_zoo/(?P<zoo_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_zoo, name='favourite_zoo'),
+	url(r'^favourite_museum/(?P<museum_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_museum, name='favourite_museum'),
+	url(r'^favourite_industry/(?P<industry_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_industry, name='favourite_industry'),
+	url(r'^favourite_restaurant/(?P<restaurant_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_restaurant, name='favourite_restaurant'),
   
 #Data Pages
     

@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from email.policy import strict
 from .models import *
 from itertools import chain
+
 
 #Main View Patterns
 
@@ -380,3 +381,228 @@ def restaurant_detail(request, restaurant_id):
 		'restaurant': restaurant,
 	}
 	return HttpResponse(template.render(context, request))
+	
+@login_required
+def favourites(request):
+	mall_fav = Mall_Favourites.objects.all()
+	hotel_fav = Hotel_Favourites.objects.all()
+	park_fav = Park_Favourites.objects.all()
+	college_fav = College_Favourites.objects.all()
+	library_fav = Library_Favourites.objects.all()
+	zoo_fav = Zoo_Favourites.objects.all()
+	museum_fav = Museum_Favourites.objects.all()
+	industry_fav= Industry_Favourites.objects.all()
+	restaurant_fav = Restaurant_Favourites.objects.all()
+	malls = Mall.objects.all()
+	hotels = Hotel.objects.all()
+	parks = Park.objects.all()
+	colleges = College.objects.all()
+	libraries = Library.objects.all()
+	zoos = Zoo.objects.all()
+	museums = Museum.objects.all()
+	industries = Industry.objects.all()
+	restaurants = Restaurant.objects.all()
+	
+	template = loader.get_template('websiteMain/favourites.html')
+	
+	context = {
+		'mall_fav': mall_fav,
+		'hotel_fav': hotel_fav,
+		'park_fav': park_fav,
+		'college_fav': college_fav,
+		'library_fav': library_fav,
+		'zoo_fav': zoo_fav,
+		'museum_fav': museum_fav,
+		'industry_fav': industry_fav,
+		'restaurant_fav': restaurant_fav,
+		'malls': malls,
+		'hotels': hotels,
+		'parks': parks,
+		'colleges': colleges,
+		'libraries': libraries,
+		'zoos': zoos,
+		'museums': museums,
+		'industries': industries,
+		'restaurants': restaurants
+	}
+	return HttpResponse(template.render(context, request))
+	
+@login_required
+def favourite_mall(request, mall_id, user_id):
+	in_table = False
+	mall_fav = Mall_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	mall_input = Mall.objects.get(pk = mall_id)
+	
+	for mall in mall_fav:
+		if user_input.id == mall.user_id and mall_input.id == mall.mall_id:
+			
+			Mall_Favourites.objects.filter(id = mall.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Mall_Favourites.objects.create(mall = Mall.objects.get(pk = mall_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_hotel(request, hotel_id, user_id):
+	in_table = False
+	hotel_fav = Hotel_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	hotel_input = Hotel.objects.get(pk = hotel_id)
+	
+	for hotel in hotel_fav:
+		if user_input.id == hotel.user_id and hotel_input.id == hotel.hotel_id:
+			
+			Hotel_Favourites.objects.filter(id = hotel.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Hotel_Favourites.objects.create(hotel = Hotel.objects.get(pk = hotel_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_park(request, park_id, user_id):
+	in_table = False
+	park_fav = Park_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	park_input = Park.objects.get(pk = park_id)
+	
+	for park in park_fav:
+		if user_input.id == park.user_id and park_input.id == park.park_id:
+			
+			Park_Favourites.objects.filter(id = park.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Park_Favourites.objects.create(park = Park.objects.get(pk = park_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_college(request, college_id, user_id):
+	in_table = False
+	college_fav = College_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	college_input = College.objects.get(pk = college_id)
+	
+	for college in college_fav:
+		if user_input.id == college.user_id and college_input.id == college.college_id:
+			
+			College_Favourites.objects.filter(id = college.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = College_Favourites.objects.create(college = College.objects.get(pk = college_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_library(request, library_id, user_id):
+	in_table = False
+	library_fav = Library_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	library_input = Library.objects.get(pk = library_id)
+	
+	for library in library_fav:
+		if user_input.id == library.user_id and library_input.id == library.library_id:
+			
+			Library_Favourites.objects.filter(id = library.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Library_Favourites.objects.create(library = Library.objects.get(pk = library_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_zoo(request, zoo_id, user_id):
+	in_table = False
+	zoo_fav = Zoo_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	zoo_input = Zoo.objects.get(pk = zoo_id)
+	
+	for zoo in zoo_fav:
+		if user_input.id == zoo.user_id and zoo_input.id == zoo.zoo_id:
+			
+			Zoo_Favourites.objects.filter(id = zoo.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Zoo_Favourites.objects.create(zoo = Zoo.objects.get(pk = zoo_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_museum(request, museum_id, user_id):
+	in_table = False
+	museum_fav = Museum_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	museum_input = Museum.objects.get(pk = museum_id)
+	
+	for museum in museum_fav:
+		if user_input.id == museum.user_id and museum_input.id == museum.museum_id:
+			
+			Museum_Favourites.objects.filter(id = museum.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Museum_Favourites.objects.create(museum = Museum.objects.get(pk = museum_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_industry(request, industry_id, user_id):
+	in_table = False
+	industry_fav = Industry_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	industry_input = Industry.objects.get(pk = industry_id)
+	
+	for industry in industry_fav:
+		if user_input.id == industry.user_id and industry_input.id == industry.industry_id:
+			
+			Industry_Favourites.objects.filter(id = industry.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Industry_Favourites.objects.create(industry = Industry.objects.get(pk = industry_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def favourite_restaurant(request, restaurant_id, user_id):
+	in_table = False
+	restaurant_fav = Restaurant_Favourites.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	restaurant_input = Restaurant.objects.get(pk = restaurant_id)
+	
+	for restaurant in restaurant_fav:
+		if user_input.id == restaurant.user_id and restaurant_input.id == restaurant.restaurant_id:
+			
+			Restaurant_Favourites.objects.filter(id = restaurant.id).delete()
+			#malls.save()
+			in_table = True
+			break
+	
+	if in_table == False:
+		instance = Restaurant_Favourites.objects.create(restaurant = Restaurant.objects.get(pk = restaurant_id), user = User.objects.get(pk = user_id))
+		instance.save()
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

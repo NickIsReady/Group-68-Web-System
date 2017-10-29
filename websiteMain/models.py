@@ -105,3 +105,39 @@ class City(models.Model):
     city_ID = models.CharField(max_length=500)
     Name = models.CharField(max_length=500)
     Service = models.CharField(max_length=500)
+	
+class Mall_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	mall = models.ForeignKey(Mall, unique =False)
+	
+class Hotel_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	hotel = models.ForeignKey(Hotel, unique =False)
+	
+class Park_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	park = models.ForeignKey(Park, unique =False)
+	
+class College_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	college = models.ForeignKey(College, unique =False)
+	
+class Library_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	library = models.ForeignKey(Library, unique =False)
+	
+class Zoo_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	zoo = models.ForeignKey(Zoo, unique =False)
+	
+class Museum_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	museum = models.ForeignKey(Museum, unique =False)
+
+class Industry_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	industry = models.ForeignKey(Industry, unique =False)
+
+class Restaurant_Favourites(models.Model):
+	user = models.ForeignKey(User, unique=False)
+	restaurant = models.ForeignKey(Restaurant, unique =False)
