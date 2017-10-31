@@ -41,6 +41,10 @@ urlpatterns = [
 	url(r'^favourite_museum/(?P<museum_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_museum, name='favourite_museum'),
 	url(r'^favourite_industry/(?P<industry_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_industry, name='favourite_industry'),
 	url(r'^favourite_restaurant/(?P<restaurant_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_restaurant, name='favourite_restaurant'),
+
+
+#Reviews
+    url(r'^review_college/(?P<college_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_college, name='review_college'),
   
 #Data Pages
     

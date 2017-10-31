@@ -159,3 +159,11 @@ class Industry_Favourites(models.Model):
 class Restaurant_Favourites(models.Model):
 	user = models.ForeignKey(User, unique=False)
 	restaurant = models.ForeignKey(Restaurant, unique =False)
+
+class Review_College(models.Model):
+    possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
+    user = models.ForeignKey(User, unique=False)
+    college = models.ForeignKey(College, unique =False)
+    user_name = models.CharField(max_length=500)
+    comment = models.CharField(max_length=1000)
+    rating = models.IntegerField(choices=possible_ratings)

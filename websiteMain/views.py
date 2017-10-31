@@ -283,9 +283,11 @@ def colleges(request):
 @login_required
 def college_detail(request, college_id):
 	college = College.objects.get(id=college_id)
+	college_rev = Review_College.objects.all()
 	template = loader.get_template('websiteMain/collegeGet.html')
 	context = {
 		'college': college,
+		'college_rev': college_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -613,3 +615,28 @@ def favourite_restaurant(request, restaurant_id, user_id):
 		instance = Restaurant_Favourites.objects.create(restaurant = Restaurant.objects.get(pk = restaurant_id), user = User.objects.get(pk = user_id))
 		instance.save()
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required	
+def review_college(request, college_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	college_rev = Review_College.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	college_input = College.objects.get(pk = college_id)
+	
+	for college in college_rev:
+		if user_input.id == college.user_id and college_input.id == college.college_id:
+			
+			Review_College.objects.filter(id = college.id).delete()
+			break
+	
+	
+	instance = Review_College.objects.create(user = User.objects.get(pk = user_id), college = College.objects.get(pk = college_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'college_ID': 'college_ID',
+		'id': college_id,
+		}
+	return HttpResponse(template.render(context, request))
