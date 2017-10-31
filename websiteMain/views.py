@@ -221,7 +221,7 @@ def malls(request):
 @login_required
 def mall_detail(request, mall_id):
 	mall = Mall.objects.get(id=mall_id)
-	mall_rev = Review_Mall.objects.all()
+	mall_rev = Review_Mall.objects.filter(mall = mall_id)
 	template = loader.get_template('websiteMain/mallGet.html')
 	context = {
 		'mall': mall,
@@ -244,7 +244,7 @@ def hotels(request):
 @login_required
 def hotel_detail(request, hotel_id):
 	hotel = Hotel.objects.get(id=hotel_id)
-	hotel_rev = Review_Hotel.objects.all()
+	hotel_rev = Review_Hotel.objects.filter(hotel = hotel_id)
 	template = loader.get_template('websiteMain/hotelGet.html')
 	context = {
 		'hotel': hotel,
@@ -266,7 +266,7 @@ def parks(request):
 @login_required
 def park_detail(request, park_id):
 	park = Park.objects.get(id=park_id)
-	park_rev = Review_Park.objects.all()
+	park_rev = Review_Park.objects.filter(park = park_id)
 	template = loader.get_template('websiteMain/parkGet.html')
 	context = {
 		'park': park,
@@ -288,7 +288,7 @@ def colleges(request):
 @login_required
 def college_detail(request, college_id):
 	college = College.objects.get(id=college_id)
-	college_rev = Review_College.objects.all()
+	college_rev = Review_College.objects.filter(college = college_id)
 	template = loader.get_template('websiteMain/collegeGet.html')
 	context = {
 		'college': college,
@@ -310,7 +310,7 @@ def libraries(request):
 @login_required
 def library_detail(request, library_id):
 	library = Library.objects.get(id=library_id)
-	library_rev = Review_Library.objects.all()
+	library_rev = Review_Library.objects.filter(library = library_id)
 	template = loader.get_template('websiteMain/libraryGet.html')
 	context = {
 		'library': library,
@@ -332,7 +332,7 @@ def zoos(request):
 @login_required
 def zoo_detail(request, zoo_id):
 	zoo = Zoo.objects.get(id=zoo_id)
-	zoo_rev = Review_Zoo.objects.all()
+	zoo_rev = Review_Zoo.objects.filter(zoo = zoo_id)
 	template = loader.get_template('websiteMain/zooGet.html')
 	context = {
 		'zoo': zoo,
@@ -354,7 +354,7 @@ def museums(request):
 @login_required
 def museum_detail(request, museum_id):
 	museum = Museum.objects.get(id=museum_id)
-	museum_rev = Review_Museum.objects.all()
+	museum_rev = Review_Museum.objects.filter(museum = museum_id)
 	template = loader.get_template('websiteMain/museumGet.html')
 	context = {
 		'museum': museum,
@@ -376,7 +376,7 @@ def industries(request):
 @login_required
 def industry_detail(request, industry_id):
 	industry = Industry.objects.get(id=industry_id)
-	industry_rev = Review_Industry.objects.all()
+	industry_rev = Review_Industry.objects.filter(industry = industry_id)
 	template = loader.get_template('websiteMain/industryGet.html')
 	context = {
 		'industry': industry,
@@ -398,7 +398,7 @@ def restaurants(request):
 @login_required
 def restaurant_detail(request, restaurant_id):
 	restaurant = Restaurant.objects.get(id=restaurant_id)
-	restaurant_rev = Review_Restaurant.objects.all()
+	restaurant_rev = Review_Restaurant.objects.filter(restaurant = restaurant_id)
 	template = loader.get_template('websiteMain/restaurantGet.html')
 	context = {
 		'restaurant': restaurant,
