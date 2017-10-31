@@ -42,11 +42,17 @@
 <script>
 
 function myMap() {
+var location = {lat: {{industry.latitude}}, lng: {{industry.longitude}}};
 var mapProp= {
     center:new google.maps.LatLng({{industry.latitude}},{{industry.longitude}}),
     zoom:18,
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+	position: location,
+	map: map,
+});
 }
 </script>
 
