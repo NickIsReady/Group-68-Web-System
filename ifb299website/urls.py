@@ -45,6 +45,14 @@ urlpatterns = [
 
 #Reviews
     url(r'^review_college/(?P<college_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_college, name='review_college'),
+    url(r'^review_library/(?P<library_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_library, name='review_library'),
+    url(r'^review_industry/(?P<industry_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_industry, name='review_industry'),
+    url(r'^review_hotel/(?P<hotel_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_hotel, name='review_hotel'),
+    url(r'^review_park/(?P<park_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_park, name='review_park'),
+    url(r'^review_zoo/(?P<zoo_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_zoo, name='review_zoo'),
+    url(r'^review_museum/(?P<museum_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_museum, name='review_museum'),
+    url(r'^review_restaurant/(?P<restaurant_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_restaurant, name='review_restaurant'),
+    url(r'^review_mall(?P<mall_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_mall, name='review_mall'),
   
 #Data Pages
     

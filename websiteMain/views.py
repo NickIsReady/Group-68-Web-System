@@ -640,3 +640,203 @@ def review_college(request, college_id, user_id):
 		'id': college_id,
 		}
 	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_library(request, library_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	library_rev = Review_Library.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	library_input = Library.objects.get(pk = library_id)
+	
+	for library in library_rev:
+		if user_input.id == library.user_id and library_input.id == library.library_id:
+			
+			Review_Library.objects.filter(id = library.id).delete()
+			break
+	
+	
+	instance = Review_Library.objects.create(user = User.objects.get(pk = user_id), library = Library.objects.get(pk = library_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'library_ID': 'library_ID',
+		'id': library_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_industry(request, industry_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	industry_rev = Review_Industry.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	industry_input = Industry.objects.get(pk = industry_id)
+	
+	for industry in industry_rev:
+		if user_input.id == industry.user_id and industry_input.id == industry.industry_id:
+			
+			Review_Industry.objects.filter(id = industry.id).delete()
+			break
+	
+	
+	instance = Review_Industry.objects.create(user = User.objects.get(pk = user_id), industry = Industry.objects.get(pk = industry_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'industry_ID': 'industry_ID',
+		'id': industry_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_hotel(request, hotel_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	hotel_rev = Review_Hotel.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	hotel_input = Hotel.objects.get(pk = hotel_id)
+	
+	for hotel in hotel_rev:
+		if user_input.id == hotel.user_id and hotel_input.id == hotel.hotel_id:
+			
+			Review_Hotel.objects.filter(id = hotel.id).delete()
+			break
+	
+	
+	instance = Review_Hotel.objects.create(user = User.objects.get(pk = user_id), hotel = Hotel.objects.get(pk = hotel_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'hotel_ID': 'hotel_ID',
+		'id': hotel_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_park(request, park_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	park_rev = Review_Park.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	park_input = Park.objects.get(pk = park_id)
+	
+	for park in park_rev:
+		if user_input.id == park.user_id and park_input.id == park.park_id:
+			
+			Review_Park.objects.filter(id = park.id).delete()
+			break
+	
+	
+	instance = Review_Park.objects.create(user = User.objects.get(pk = user_id), park = Park.objects.get(pk = park_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'park_ID': 'park_ID',
+		'id': park_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_zoo(request, zoo_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	zoo_rev = Review_Zoo.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	zoo_input = Zoo.objects.get(pk = zoo_id)
+	
+	for zoo in zoo_rev:
+		if user_input.id == zoo.user_id and zoo_input.id == zoo.zoo_id:
+			
+			Review_Zoo.objects.filter(id = zoo.id).delete()
+			break
+	
+	
+	instance = Review_Zoo.objects.create(user = User.objects.get(pk = user_id), zoo = Zoo.objects.get(pk = zoo_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'zoo_ID': 'zoo_ID',
+		'id': zoo_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_museum(request, museum_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	museum_rev = Review_Museum.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	museum_input = Museum.objects.get(pk = museum_id)
+	
+	for museum in museum_rev:
+		if user_input.id == museum.user_id and museum_input.id == museum.museum_id:
+			
+			Review_Museum.objects.filter(id = museum.id).delete()
+			break
+	
+	
+	instance = Review_Museum.objects.create(user = User.objects.get(pk = user_id), museum = Museum.objects.get(pk = museum_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'museum_ID': 'museum_ID',
+		'id': museum_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_restaurant(request, restaurant_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	restaurant_rev = Review_Restaurant.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	restaurant_input = Restaurant.objects.get(pk = restaurant_id)
+	
+	for restaurant in restaurant_rev:
+		if user_input.id == restaurant.user_id and restaurant_input.id == restaurant.restaurant_id:
+			
+			Review_Restaurant.objects.filter(id = restaurant.id).delete()
+			break
+	
+	
+	instance = Review_Restaurant.objects.create(user = User.objects.get(pk = user_id), restaurant = Restaurant.objects.get(pk = restaurant_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'restaurant_ID': 'restaurant_ID',
+		'id': restaurant_id,
+		}
+	return HttpResponse(template.render(context, request))
+
+@login_required	
+def review_mall(request, mall_id, user_id):
+	score_id = request.GET.get('score')
+	comment_id = request.GET.get('comment')
+	mall_rev = Review_Mall.objects.all()
+	user_input = User.objects.get(pk = user_id)
+	mall_input = Mall.objects.get(pk = mall_id)
+	
+	for mall in mall_rev:
+		if user_input.id == mall.user_id and mall_input.id == mall.mall_id:
+			
+			Review_Mall.objects.filter(id = mall.id).delete()
+			break
+	
+	
+	instance = Review_Mall.objects.create(user = User.objects.get(pk = user_id), mall = Mall.objects.get(pk = mall_id), user_name = user_input.username, comment = comment_id, rating = score_id)
+	instance.save()
+
+	template = loader.get_template('websiteMain/review_submitted.html')
+	context = {
+		'mall_ID': 'mall_ID',
+		'id': mall_id,
+		}
+	return HttpResponse(template.render(context, request))
