@@ -202,6 +202,9 @@ class MallDelete(DeleteView):
 def profile(request):
 	return render(request, 'websiteMain/profile.html')
 
+#Submit Profile Changes
+#def SubmitProfileChanges(request):
+
 
 #Data View Patterns
 

@@ -7,7 +7,7 @@
 	<br>
 	<h2>Profile Details</h2>
 	
-	<form action="/profile_submit.php">
+	<form action="submit" method="post">
 		</div>
 			<div class="well">
 			<div class="panel panel-default">
@@ -24,18 +24,18 @@
 			</div>
 			<div class="panel panel-default">
 	  		<div class="panel-heading">Email</div>
-	  		<input class="panel-body type="text" name="email" value="{{user.email}}" style="width: 100%;">
+	  		<input id="email" class="panel-body type="text" name="email" value="{{user.email}}" style="width: 100%;">
 			</div>
 			<div class="panel panel-default">
 	  		<div class="panel-heading">First Name:</div>
-	  		<input class="panel-body type="text" name="first_name" value="{{user.first_name}}" style="width: 100%;">
+	  		<input id="first_name" class="panel-body type="text" name="first_name" value="{{user.first_name}}" style="width: 100%;">
 			</div>
 			<div class="panel panel-default">
 	  		<div class="panel-heading">Last Name::</div>
-	  		<input class="panel-body type="text" name="last_name" value="{{user.last_name}}" style="width: 100%;">
+	  		<input id="last_name" class="panel-body type="text" name="last_name" value="{{user.last_name}}" style="width: 100%;">
 	  		<div class="panel-body"></div>
 			</div>
-			<input type="submit">
+			<a href="{{views.SubmitProfileChanges(request, (user.email = 
 		</div>
 	</form>
 {% else %}
