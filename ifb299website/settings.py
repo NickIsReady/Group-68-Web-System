@@ -29,7 +29,12 @@ ALLOWED_HOSTS = []
 
 LOGIN_URL = '/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'group68smartcity@gmail.com' 
+EMAIL_HOST_PASSWORD = 'qwertasdf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 AUTH_USER_MODEL = 'websiteMain.User'
 
