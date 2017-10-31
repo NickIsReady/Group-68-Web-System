@@ -55,7 +55,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	<div class="well">
 	  <div class="well"><h4>Write a Review for {{museum.name}}</h4></div>
 	  <div class="well">
-	  	<form action="/review_college/{{ museum.id }}/{{ user.id }}" method="get" id="review_form">
+	  	<form action="/review_museum/{{ museum.id }}/{{ user.id }}" method="get" id="review_form">
 		    <div class="form-group">
 		    <label for="sel1">Rating out of 5:</label>
 		    <select class="form-control" name="score">
