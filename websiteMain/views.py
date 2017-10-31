@@ -104,13 +104,12 @@ def categories(request):
 	
 def contacts(request):
 	#[image of person, name, email]
-	context = [['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Patrick ​Breen',''],
-			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Douglas ​Brennan',''],
-			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Nicholas ​Constantine','nickconstantine3@gmail.com'],
-			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Joshua ​Stephens',''],
-			['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Tuan ​Luong','']]
+	context = [['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/220px-Nicolas_Cage_2011_CC.jpg','Patrick ​Breen','n9726306@qut.edu.au', 'Client/Product Owner'],
+			['https://tjbrearton.files.wordpress.com/2013/01/seenosideburns.jpg','Douglas ​Brennan','n7326645@qut.edu.au', 'Developer'],
+			['http://howditgetburned.weebly.com/uploads/2/9/4/4/29441825/3592426_orig.jpg','Nicholas ​Constantine','nickconstantine3@gmail.com', 'Developer'],
+			['http://images4.static-bluray.com/products/22/131_1_front.jpg','Joshua ​Stephens','n9707204@qut.edu.au', 'Scrum Master'],
+			['http://i.dailymail.co.uk/i/pix/2007/04_03/NicolasCageAP_228x332.jpg','Tuan ​Luong','n5702747@qut.edu.au', 'Developer']]
 	return render(request, 'websiteMain/contacts.html', {'names': context})
-
 	
 def register(request):
 
