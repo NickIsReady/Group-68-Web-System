@@ -179,7 +179,7 @@ class Review_Library(models.Model):
 class Review_Industry(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Industry, unique =False)
+    industry = models.ForeignKey(Industry, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -187,7 +187,7 @@ class Review_Industry(models.Model):
 class Review_Hotel(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Hotel, unique =False)
+    hotel = models.ForeignKey(Hotel, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -195,7 +195,7 @@ class Review_Hotel(models.Model):
 class Review_Park(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Park, unique =False)
+    park = models.ForeignKey(Park, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -203,7 +203,7 @@ class Review_Park(models.Model):
 class Review_Zoo(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Zoo, unique =False)
+    zoo = models.ForeignKey(Zoo, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -211,7 +211,7 @@ class Review_Zoo(models.Model):
 class Review_Museum(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Museum, unique =False)
+    museum = models.ForeignKey(Museum, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -219,7 +219,7 @@ class Review_Museum(models.Model):
 class Review_Restaurant(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Restaurant, unique =False)
+    restaurant = models.ForeignKey(Restaurant, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)
@@ -227,7 +227,7 @@ class Review_Restaurant(models.Model):
 class Review_Mall(models.Model):
     possible_ratings = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),)
     user = models.ForeignKey(User, unique=False)
-    library = models.ForeignKey(Mall, unique =False)
+    mall = models.ForeignKey(Mall, unique =False)
     user_name = models.CharField(max_length=500)
     comment = models.CharField(max_length=1000)
     rating = models.IntegerField(choices=possible_ratings)

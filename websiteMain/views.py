@@ -222,9 +222,11 @@ def malls(request):
 @login_required
 def mall_detail(request, mall_id):
 	mall = Mall.objects.get(id=mall_id)
+	mall_rev = Review_Mall.objects.all()
 	template = loader.get_template('websiteMain/mallGet.html')
 	context = {
 		'mall': mall,
+		'mall_rev': mall_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -243,9 +245,11 @@ def hotels(request):
 @login_required
 def hotel_detail(request, hotel_id):
 	hotel = Hotel.objects.get(id=hotel_id)
+	hotel_rev = Review_Hotel.objects.all()
 	template = loader.get_template('websiteMain/hotelGet.html')
 	context = {
 		'hotel': hotel,
+		'hotel_rev': hotel_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -263,9 +267,11 @@ def parks(request):
 @login_required
 def park_detail(request, park_id):
 	park = Park.objects.get(id=park_id)
+	park_rev = Review_Park.objects.all()
 	template = loader.get_template('websiteMain/parkGet.html')
 	context = {
 		'park': park,
+		'park_rev': park_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -305,9 +311,11 @@ def libraries(request):
 @login_required
 def library_detail(request, library_id):
 	library = Library.objects.get(id=library_id)
+	library_rev = Review_Library.objects.all()
 	template = loader.get_template('websiteMain/libraryGet.html')
 	context = {
 		'library': library,
+		'library_rev': library_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -325,9 +333,11 @@ def zoos(request):
 @login_required
 def zoo_detail(request, zoo_id):
 	zoo = Zoo.objects.get(id=zoo_id)
+	zoo_rev = Review_Zoo.objects.all()
 	template = loader.get_template('websiteMain/zooGet.html')
 	context = {
 		'zoo': zoo,
+		'zoo_rev': zoo_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -345,9 +355,11 @@ def museums(request):
 @login_required
 def museum_detail(request, museum_id):
 	museum = Museum.objects.get(id=museum_id)
+	museum_rev = Review_Museum.objects.all()
 	template = loader.get_template('websiteMain/museumGet.html')
 	context = {
 		'museum': museum,
+		'museum_rev': museum_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -365,9 +377,11 @@ def industries(request):
 @login_required
 def industry_detail(request, industry_id):
 	industry = Industry.objects.get(id=industry_id)
+	industry_rev = Review_Industry.objects.all()
 	template = loader.get_template('websiteMain/industryGet.html')
 	context = {
 		'industry': industry,
+		'industry_rev': industry_rev,
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -385,9 +399,11 @@ def restaurants(request):
 @login_required
 def restaurant_detail(request, restaurant_id):
 	restaurant = Restaurant.objects.get(id=restaurant_id)
+	restaurant_rev = Review_Restaurant.objects.all()
 	template = loader.get_template('websiteMain/restaurantGet.html')
 	context = {
 		'restaurant': restaurant,
+		'restaurant_rev': restaurant_rev,
 	}
 	return HttpResponse(template.render(context, request))
 	
