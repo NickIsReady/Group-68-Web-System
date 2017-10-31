@@ -198,6 +198,10 @@ class MallDelete(DeleteView):
 	model = Mall
 	success_url = reverse_lazy('websiteMain/index')
 
+#Profile
+def profile(request):
+	return render(request, 'websiteMain/profile.html')
+
 
 #Data View Patterns
 
