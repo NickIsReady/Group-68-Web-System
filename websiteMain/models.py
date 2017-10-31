@@ -19,7 +19,9 @@ class Mall(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
-    
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
+	
 # Hotel Entity 
 class Hotel(models.Model):
     hotel_ID = models.CharField(max_length=500)
@@ -29,7 +31,9 @@ class Hotel(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
-    
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
+	
 # Park Entity 
 class Park(models.Model):
     park_ID = models.CharField(max_length=500)
@@ -39,6 +43,8 @@ class Park(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # College Entity 
 class College(models.Model):
@@ -49,6 +55,8 @@ class College(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # Library Entity 
 class Library(models.Model):
@@ -59,6 +67,8 @@ class Library(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # Zoo Entity 
 class Zoo(models.Model):
@@ -69,6 +79,8 @@ class Zoo(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # Museum Entity 
 class Museum(models.Model):
@@ -79,6 +91,8 @@ class Museum(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # Industry Entity 
 class Industry(models.Model):
@@ -89,6 +103,8 @@ class Industry(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # Restaurant Entity 
 class Restaurant(models.Model):
@@ -99,6 +115,8 @@ class Restaurant(models.Model):
     city = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     image_url = models.CharField(max_length=500)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
 # City Entity 
 class City(models.Model):
