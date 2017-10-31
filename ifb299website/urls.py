@@ -30,6 +30,7 @@ urlpatterns = [
 	url(r'^logout', views.user_logout, name='logout'),
     url(r'^categories', views.categories, name='categories'),
 	url('^', include('django.contrib.auth.urls')),
+    url(r'^profile', views.profile, name='profile'),
 	url(r'^favourites', views.favourites, name='favourites'),
 	url(r'^favourite_mall/(?P<mall_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_mall, name='favourite_mall'),
 	url(r'^favourite_hotel/(?P<hotel_id>[0-9]+)/(?P<user_id>[0-9]+)', views.favourite_hotel, name='favourite_hotel'),

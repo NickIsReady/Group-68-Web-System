@@ -1,0 +1,47 @@
+{% extends 'websiteMain/base.html' %}
+
+{% block body %}
+{% if user.is_authenticated %}
+
+	<h1>Profile Page hello {{user.username}}!</h1>
+	<br>
+	<h2>Profile Details</h2>
+	
+	<form action="/profile_submit.php">
+		</div>
+			<div class="well">
+			<div class="panel panel-default">
+	  		<div class="panel-heading">Username:</div>
+	  		<div class="panel-body">{{user.username}}</div>
+			</div>
+			<div class="panel panel-default">
+	  		<div class="panel-heading">User Type:</div>
+	  		<div class="panel-body"></div>
+			</div>
+			<div class="panel panel-default">
+	  		<div class="panel-heading">Date Joined: </div>
+	  		<div class="panel-body">Sept{{user.date_joined}}</div>
+			</div>
+			<div class="panel panel-default">
+	  		<div class="panel-heading">Email</div>
+	  		<input class="panel-body type="text" name="email" value="{{user.email}}" style="width: 100%;">
+			</div>
+			<div class="panel panel-default">
+	  		<div class="panel-heading">First Name:</div>
+	  		<input class="panel-body type="text" name="first_name" value="{{user.first_name}}" style="width: 100%;">
+			</div>
+			<div class="panel panel-default">
+	  		<div class="panel-heading">Last Name::</div>
+	  		<input class="panel-body type="text" name="last_name" value="{{user.last_name}}" style="width: 100%;">
+	  		<div class="panel-body"></div>
+			</div>
+			<input type="submit">
+		</div>
+	</form>
+{% else %}
+	<h1>End of information</h1>
+{% endif %}
+
+
+
+{% endblock %}
