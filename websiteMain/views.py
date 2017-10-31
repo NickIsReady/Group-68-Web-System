@@ -651,7 +651,7 @@ def review_college(request, college_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'college_ID': 'college_ID',
+		'ID': 'college_ID',
 		'id': college_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -676,7 +676,7 @@ def review_library(request, library_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'library_ID': 'library_ID',
+		'ID': 'library_ID',
 		'id': library_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -701,7 +701,7 @@ def review_industry(request, industry_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'industry_ID': 'industry_ID',
+		'ID': 'industry_ID',
 		'id': industry_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -726,7 +726,7 @@ def review_hotel(request, hotel_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'hotel_ID': 'hotel_ID',
+		'ID': 'hotel_ID',
 		'id': hotel_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -751,7 +751,7 @@ def review_park(request, park_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'park_ID': 'park_ID',
+		'ID': 'park_ID',
 		'id': park_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -776,7 +776,7 @@ def review_zoo(request, zoo_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'zoo_ID': 'zoo_ID',
+		'ID': 'zoo_ID',
 		'id': zoo_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -801,7 +801,7 @@ def review_museum(request, museum_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'museum_ID': 'museum_ID',
+		'ID': 'museum_ID',
 		'id': museum_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -826,7 +826,7 @@ def review_restaurant(request, restaurant_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'restaurant_ID': 'restaurant_ID',
+		'ID': 'restaurant_ID',
 		'id': restaurant_id,
 		}
 	return HttpResponse(template.render(context, request))
@@ -851,7 +851,7 @@ def review_mall(request, mall_id, user_id):
 
 	template = loader.get_template('websiteMain/review_submitted.html')
 	context = {
-		'mall_ID': 'mall_ID',
+		'ID': 'mall_ID',
 		'id': mall_id,
 		}
 	return HttpResponse(template.render(context, request))
