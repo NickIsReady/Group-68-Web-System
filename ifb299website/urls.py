@@ -52,7 +52,7 @@ urlpatterns = [
     url(r'^review_zoo/(?P<zoo_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_zoo, name='review_zoo'),
     url(r'^review_museum/(?P<museum_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_museum, name='review_museum'),
     url(r'^review_restaurant/(?P<restaurant_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_restaurant, name='review_restaurant'),
-    url(r'^review_mall(?P<mall_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_mall, name='review_mall'),
+    url(r'^review_mall/(?P<mall_id>[0-9]+)/(?P<user_id>[0-9]+)', views.review_mall, name='review_mall'),
   
 #Data Pages
     

@@ -1,7 +1,7 @@
 {% extends 'websiteMain/base.html' %}
 {% block body %}
 {% if user.is_authenticated %}
-	<h1>Hello {{ user.username }} here are some places for a {{ user.user_type }}</h1>
+	<h1>Hello <b>{{ user.username }}</b> here are some places for a <b>{{ user.user_type }}</b></h1>
 	<div class="list-group">
 	{% if user.user_type == 'Tourist' %}
 		<h2>Hotels</h2>

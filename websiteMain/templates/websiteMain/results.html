@@ -3,7 +3,7 @@
 {% block body %}
 
 {% if user.is_authenticated %}
-	<h1>Here are your search results for '{{ query }}'</h1>
+	<h1>Here are your search results for <b>'{{ query }}'</b></h1>
 	<ul class="pager">
 		<li class="previous"><a href="http://127.0.0.1:8000/categories">Categories</a></li>
 	</ul>

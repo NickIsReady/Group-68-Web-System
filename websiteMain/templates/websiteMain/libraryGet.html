@@ -2,7 +2,6 @@
 
 {% block body %}
 {% if user.is_authenticated %}
-	<h1>Hello {{ user.username }}!</h1>
 	<ul class="pager">
 		<li class="previous"><a href="http://127.0.0.1:8000/information/libraries">Libraries</a></li>
 	</ul>
@@ -48,12 +47,13 @@ var mapProp= {
     zoom:18,
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
+
 
 var marker = new google.maps.Marker({
 	position: location,
 	map: map,
 });
+}
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJuOw0Qq19zTsiJWvFxHFnbWGsgcNPQ88&callback=myMap"></script>

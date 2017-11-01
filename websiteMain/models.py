@@ -21,6 +21,9 @@ class Mall(models.Model):
     image_url = models.CharField(max_length=500)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
 	
 # Hotel Entity 
 class Hotel(models.Model):
@@ -33,6 +36,9 @@ class Hotel(models.Model):
     image_url = models.CharField(max_length=500)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
 	
 # Park Entity 
 class Park(models.Model):
@@ -46,6 +52,9 @@ class Park(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
+    
 # College Entity 
 class College(models.Model):
     college_ID = models.CharField(max_length=500)
@@ -57,6 +66,9 @@ class College(models.Model):
     image_url = models.CharField(max_length=500)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
     
 # Library Entity 
 class Library(models.Model):
@@ -70,6 +82,9 @@ class Library(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
+    
 # Zoo Entity 
 class Zoo(models.Model):
     zoo_ID = models.CharField(max_length=500)
@@ -81,6 +96,9 @@ class Zoo(models.Model):
     image_url = models.CharField(max_length=500)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
     
 # Museum Entity 
 class Museum(models.Model):
@@ -94,6 +112,9 @@ class Museum(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
+    
 # Industry Entity 
 class Industry(models.Model):
     industry_ID = models.CharField(max_length=500)
@@ -105,6 +126,9 @@ class Industry(models.Model):
     image_url = models.CharField(max_length=500)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
     
 # Restaurant Entity 
 class Restaurant(models.Model):
@@ -118,11 +142,17 @@ class Restaurant(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
+    
 # City Entity 
 class City(models.Model):
     city_ID = models.CharField(max_length=500)
     Name = models.CharField(max_length=500)
     Service = models.CharField(max_length=500)
+    
+    def __str__(self):  #For Python 2, use __str__ on Python 3
+        return self.Name
 	
 class Mall_Favourites(models.Model):
 	user = models.ForeignKey(User, unique=False)
